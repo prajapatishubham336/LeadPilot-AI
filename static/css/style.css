@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f7f8fa;
+    color: #202632;
+    font: 12px Arial, sans-serif;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 190px;
+    background: #fff;
+    border-right: 1px solid #e4e7ec;
+    padding: 14px 10px;
+    position: fixed;
+    inset: 0 auto 0 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+    padding: 4px 7px 18px;
+}
+
+.logo {
+    font-size: 25px;
+    color: #c52828;
+}
+
+.brand b,
+.brand strong {
+    display: block;
+    font-size: 9px;
+}
+
+.brand strong {
+    font-size: 11px;
+}
+
+.brand span {
+    margin-left: auto;
+}
+
+.workspace {
+    font-weight: bold;
+    padding: 20px 7px 13px;
+}
+
+.workspace small {
+    float: right;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 8px;
+    color: #343c49;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+
+nav a span {
+    flex: 1;
+}
+
+nav a b {
+    font-size: 10px;
+}
+
+.active {
+    background: #17549b !important;
+    color: white !important;
+}
+
+.sub {
+    margin-left: 15px;
+    border-left: 1px solid #ddd;
+    padding-left: 7px;
+}
+
+.sub a {
+    font-size: 10px;
+}
+
+.sub .selected {
+    background: #17549b;
+    color: white;
+}
+
+.sidebottom {
+    position: absolute;
+    bottom: 18px;
+    background: #f3f7fc;
+    padding: 10px;
+    border-radius: 7px;
+    left: 10px;
+    right: 10px;
+}
+
+.sidebottom span {
+    display: block;
+    font-size: 9px;
+    color: #77808c;
+    margin-top: 5px;
+}
+
+main {
+    margin-left: 190px;
+    width: calc(100% - 190px);
+}
+
+header {
+    height: 68px;
+    background: #fff;
+    border-bottom: 1px solid #e6e8ec;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    gap: 18px;
+}
+
+header h2 {
+    font-size: 14px;
+}
+
+.crumb {
+    font-size: 24px;
+    color: #3476ad;
+}
+
+.top-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+
+.top-actions button,
+.modal button,
+.modal input,
+.modal select,
+.modal textarea {
+    border: 1px solid #dfe4ea;
+    background: white;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 11px;
+}
+
+.blue {
+    background: #17549b !important;
+    color: #fff;
+    border: 0 !important;
+}
+
+.content {
+    padding: 18px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title h3 {
+    font-size: 11px;
+}
+
+.section-title span {
+    font-size: 9px;
+    color: #89919c;
+}
+
+.section-title b {
+    display: block;
+    color: #2671b7;
+    font-size: 12px;
+}
+
+.grid-main {
+    display: grid;
+    grid-template-columns: 1fr 285px;
+    gap: 16px;
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid #e6e9ee;
+    border-radius: 5px;
+    padding: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 2px #00000003;
+}
+
+.tablehead,
+.leadrow {
+    display: grid;
+    grid-template-columns: 1.25fr .6fr 1.6fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.tablehead {
+    font-size: 9px;
+    color: #7d8793;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.leadrow {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f1f3;
+}
+
+.leadrow:last-child {
+    border: 0;
+}
+
+.leadrow b {
+    font-size: 10px;
+}
+
+.leadrow small,
+.signals small {
+    display: block;
+    color: #89919c;
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.score {
+    display: inline-flex;
+    width: 27px;
+    height: 27px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+}
+
+.green {
+    background: #dff4e9;
+    color: #299267;
+}
+
+.yellow {
+    background: #fff0cf;
+    color: #b78925;
+}
+
+.red {
+    background: #ffe1e1;
+    color: #d15b5b;
+}
+
+.signals {
+    font-size: 9px;
+}
+
+.leadrow > div:last-child b {
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.rightcol h3 {
+    font-size: 11px;
+    margin: 0 0 12px;
+}
+
+.rightcol > div > small {
+    float: right;
+    color: #9ca4af;
+    font-size: 8px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 5px;
+    font-size: 10px;
+}
+
+.metric b {
+    color: #4b75aa;
+}
+
+.bar {
+    height: 5px;
+    background: #edf0f4;
+    border-radius: 5px;
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    background: #7ba8d4;
+    border-radius: 5px;
+}
+
+.rightcol p {
+    font-size: 9px;
+    color: #687381;
+}
+
+.green-t {
+    float: right;
+    color: #42a47a;
+}
+
+.yellow-t {
+    float: right;
+    color: #c5a04b;
+}
+
+.tag {
+    float: right;
+    background: #e1f5ed;
+    color: #3b9b79;
+    font-size: 8px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.rightcol ol {
+    padding-left: 22px;
+}
+
+.rightcol li {
+    padding: 8px 0 8px 2px;
+    font-size: 10px;
+}
+
+.rightcol li small {
+    display: block;
+    color: #89919c;
+    margin-top: 4px;
+    font-size: 9px;
+}
+
+.chartbox {
+    height: 220px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0007;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+.modalbox {
+    background: white;
+    width: 470px;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    border: 0 !important;
+    font-size: 20px !important;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal form {
+    display: grid;
+    gap: 10px;
+}
+
+.modal textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.modal pre {
+    white-space: pre-wrap;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #344;
+}
+
+.empty {
+    text-align: center;
+    padding: 60px;
+    color: #999;
+}
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 65px;
+    }
+
+    .sidebar span,
+    .sidebar strong,
+    .sidebar b,
+    .workspace,
+    .sub,
+    .sidebottom {
+        display: none;
+    }
+
+    main {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+    }
+
+    .grid-main {
+        grid-template-columns: 1fr;
+    }
+
+    .rightcol {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .rightcol .chartbox {
+        grid-column: span 2;
+    }
+}

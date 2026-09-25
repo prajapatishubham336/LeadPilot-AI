@@ -1,0 +1,340 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LeadPilot AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="logo">♧</div>
+                <div>
+                    <b>Company</b>
+                    <strong>HashMicro</strong>
+                </div>
+                <span>⌃</span>
+            </div>
+
+            <div class="workspace">
+                HashMicro <small>20</small>
+            </div>
+
+            <nav>
+                <a>⌕ <span>CRM</span></a>
+
+                <a>
+                    ⌕ <span>Search</span>
+                    <kbd>Alt + Shift + S</kbd>
+                </a>
+
+                <a>▦ <span>Main Dashboard</span></a>
+
+                <a class="active">
+                    ▣ <span>CRM Operations</span>
+                    <b>⌃</b>
+                </a>
+
+                <div class="sub">
+                    <a>Lead Monitoring⌄</a>
+                    <a>Lead Insights⌄</a>
+                    <a class="selected">↳ Lead Scoring</a>
+                    <a>Score History</a>
+                </div>
+
+                <a>
+                    ▥ <span>Sales</span>
+                    <b>⌄</b>
+                </a>
+
+                <a>
+                    ♟ <span>Customers</span>
+                    <b>⌄</b>
+                </a>
+
+                <a>
+                    ◈ <span>Monitoring</span>
+                    <b>⌄</b>
+                </a>
+
+                <a>
+                    ◉ <span>Reporting</span>
+                    <b>⌄</b>
+                </a>
+
+                <a>⚙ <span>Configuration</span></a>
+            </nav>
+
+            <div class="sidebottom">
+                <b>AI Powered</b>
+                <span>Smarter Insights. Happier Customers.</span>
+            </div>
+
+        </aside>
+
+        <main>
+
+            <header>
+                <div class="crumb">‹</div>
+
+                <h2>AI Lead Scoring</h2>
+
+                <div class="top-actions">
+                    <button>May 2026⌄</button>
+                    <button>▣</button>
+                    <button>▤</button>
+                    <button>⚙ Settings</button>
+                    <button class="blue" onclick="openModal()">＋ Add</button>
+                </div>
+            </header>
+
+            <section class="content">
+
+                <div class="section-title">
+                    <h3>AI Lead Priority</h3>
+                    <span>
+                        Potential Pipeline Value
+                        <b>IDR 24,700,000,000</b>
+                    </span>
+                </div>
+
+                <div class="grid-main">
+
+                    <section class="panel leadpanel">
+
+                        <div class="tablehead">
+                            <span>Lead</span>
+                            <span>AI Score</span>
+                            <span>Signals</span>
+                            <span>AI Recommendation</span>
+                        </div>
+
+                        {% for l in leads[:8] %}
+
+                        <div class="leadrow">
+
+                            <div>
+                                <b>{{l.company}}</b>
+                                <small>{{l.source}}</small>
+                            </div>
+
+                            <div>
+                                <em class="score {% if l.score>=75 %}green{% elif l.score>=50 %}yellow{% else %}red{% endif %}">
+                                    {{l.score}}
+                                </em>
+                            </div>
+
+                            <div class="signals">
+                                <small>• {{l.intent}} buying intent</small>
+                                <small>• {{l.requirements}}</small>
+                                <small>• Stage: {{l.stage}}</small>
+                            </div>
+
+                            <div>
+                                <b>{{l.recommendation}}</b>
+                            </div>
+
+                        </div>
+
+                        {% else %}
+
+                        <div class="empty">
+                            No leads yet. Click Add to analyze your first lead.
+                        </div>
+
+                        {% endfor %}
+
+                    </section>
+
+                    <aside class="rightcol">
+
+                        <div class="panel">
+
+                            <h3>Score Breakdown</h3>
+                            <small>AI System View</small>
+
+                            <div class="metric">
+                                <span>BANT Score</span>
+                                <b>45%</b>
+                            </div>
+
+                            <div class="bar">
+                                <i style="width:45%"></i>
+                            </div>
+
+                            <div class="metric">
+                                <span>Activity Score</span>
+                                <b>35%</b>
+                            </div>
+
+                            <div class="bar">
+                                <i style="width:35%"></i>
+                            </div>
+
+                            <div class="metric">
+                                <span>Profile Fit</span>
+                                <b>20%</b>
+                            </div>
+
+                            <div class="bar">
+                                <i style="width:20%"></i>
+                            </div>
+
+                            <h3>BANT Breakdown</h3>
+
+                            <p>
+                                ● Budget confirmed
+                                <b class="green-t">+18 pts</b>
+                            </p>
+
+                            <p>
+                                ● Authority identified
+                                <b class="green-t">+15 pts</b>
+                            </p>
+
+                            <p>
+                                ● Demo attended
+                                <b class="green-t">+12 pts</b>
+                            </p>
+
+                            <p>
+                                ● Timeline Q3 2026
+                                <b class="yellow-t">+7 pts</b>
+                            </p>
+
+                        </div>
+
+                        <div class="panel">
+
+                            <h3>
+                                AI Next Actions
+                                <span class="tag">Top Lead</span>
+                            </h3>
+
+                            <ol>
+
+                                <li>
+                                    <b>Send personalised proposal</b>
+                                    <small>
+                                        Budget confirmed, include 1-page summary.
+                                    </small>
+                                </li>
+
+                                <li>
+                                    <b>Schedule closing call</b>
+                                    <small>
+                                        Decision-maker and timeline identified.
+                                    </small>
+                                </li>
+
+                                <li>
+                                    <b>Send follow-up email</b>
+                                    <small>
+                                        Use AI-generated email draft.
+                                    </small>
+                                </li>
+
+                            </ol>
+
+                        </div>
+
+                        <div class="panel chartbox">
+
+                            <h3>Lead Overview</h3>
+
+                            <canvas id="stageChart"></canvas>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div id="modal" class="modal">
+
+        <div class="modalbox">
+
+            <button class="close" onclick="closeModal()">×</button>
+
+            <h2>Analyze New Lead</h2>
+
+            <form id="leadForm">
+
+                <input
+                    name="company"
+                    placeholder="Company name"
+                    required
+                >
+
+                <input
+                    name="contact"
+                    placeholder="Contact email"
+                >
+
+                <select name="source">
+                    <option>Website</option>
+                    <option>Email</option>
+                    <option>Chat Transcript</option>
+                    <option>Inquiry Form</option>
+                </select>
+
+                <textarea
+                    name="conversation"
+                    placeholder="Paste customer conversation, email or inquiry..."
+                    required
+                ></textarea>
+
+                <button class="blue" type="submit">
+                    Analyze Lead
+                </button>
+
+            </form>
+
+            <pre id="result"></pre>
+
+        </div>
+
+    </div>
+
+    <script>
+        const stages={{stages|tojson}};
+
+        new Chart(
+            document.getElementById('stageChart'),
+            {
+                type:'doughnut',
+                data:{
+                    labels:Object.keys(stages),
+                    datasets:[
+                        {
+                            data:Object.values(stages)
+                        }
+                    ]
+                },
+                options:{
+                    plugins:{
+                        legend:{
+                            position:'bottom'
+                        }
+                    }
+                }
+            }
+        );
+    </script>
+
+    <script src="/static/js/app.js"></script>
+
+</body>
+</html>
